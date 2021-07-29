@@ -3,6 +3,7 @@ from numpy import vstack
 
 def evaluation(model, x, y):
     predictions, actuals = list(), list()
+    print("Evaluating Model...")
     for i in enumerate(x):
         yhat = model(x)
         yhat = yhat.detach().numpy()

@@ -20,7 +20,7 @@ def plotsamples(filereal, filepredict, Time):
     mpl.style.use('seaborn')
     plt.xlim(-.4, .4)
     plt.ylim(-.2, 0.5)
-    time = Time.replace(":", "_", 3)
+    time = Time.replace(":", "_")
     
     Title = "Real vs predicted positions:\n %s \n  Players 1-5" %Time
     plt.title(Title, fontsize = 18) 
@@ -93,6 +93,4 @@ def plotsamples(filereal, filepredict, Time):
     plt.savefig(namefig,bbox_inches='tight') 
     plt.show()
 
-
- 
  

@@ -2,9 +2,9 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 import pandas as pd
 
-def plotfiles(file, type):
+def plotfiles(data_folder, file, type):
+    file = data_folder/file
     df = pd.read_csv(file)
-    df = pd.read_csv(file, skiprows=[1])
     plt.figure(figsize=(4,3))
     plt.tick_params(labelsize=14)
     mpl.style.use('seaborn')
