@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 
 
 def train(m, x, y):
+    print("\nTraining in progress...")
     opt = torch.optim.Adam(m.parameters(), lr=0.001)
     criterion = torch.nn.MSELoss()
     Loss_list = []
