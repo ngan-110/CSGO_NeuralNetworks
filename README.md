@@ -1,15 +1,22 @@
-Acknowledgment
-This work was supported in part by NSF grantCNS1758017.
-Adviser of my project is Dr. Markus Eger at Cal Poly Pomona: https://yawgmoth.github.io/
-I used Demo Analyzer, developed by Aaron Parker to parse CSGO demo [1]
+ACKNOWLEDGEMENT:
+
+  This work was supported in part by NSF grantCNS1758017.
+
+  Adviser of my project is Dr. Markus Eger at Cal Poly Pomona: https://yawgmoth.github.io/
+
+  I used Demo Analyzer, developed by Aaron Parker to parse CSGO demo [1]
 
 
 
-Procedure
-In short, our approach consists of three parts: 
-1) Collect replay files and extract locations of players;
-2) Record network traffic received from Valve server and; 
-3) Find a correlation between the two using a neural network.
+PROCEDURE
+
+  In short, our approach consists of three parts: 
+  
+  1) Collect replay files and extract locations of players;
+   
+  2) Record network traffic received from Valve server and; 
+   
+  3) Find a correlation between the two using a neural network.
 
 The procedure involves the use of Pytorch, a Demo Analyzer parser, Artificial Neural Network, and network sniffing library: Wireshark.
 
@@ -33,14 +40,19 @@ Notice: If you decide to use our provided data set, skip step 1-6. If you want t
 
 7. From your command line, navigate to directory where you save the repository, then run python main.py to run the script. When running main.py the following procedures are conducted:
 
-- Conversion of network bytes to numeric values.
-- Using the timestamps to align network bytes with the corresponding players' locations. 
-Eg: Players' positions data at time t should be connected to network byte data at time m that is the smaller and is the closest value to t.
-- Data is normalized and randomly splitted into two sets: 80\% as training set to Neural Network model and 20\% is used as testing set.
-- The algorithm we are using includes of 4 hidden layers and Artificial Neural Network method with back-propagation, where MSE losses (errors) are sent back to fine-tune the weights of the net based on loss from previous iteration to lower error rates and increase its generalization, activation functions used is Leaky ReLU.
-- Three samples are randomly selected to show the real and their corresponding predictions.
+  - Conversion of network bytes to numeric values.
+
+  - Using the timestamps to align network bytes with the corresponding players' locations. Eg: Players' positions data at time t should be connected to network byte data at time m that is the smaller and is the closest value to t.
+
+  - Data is normalized and randomly splitted into two sets: 80\% as training set to Neural Network model and 20\% is used as testing set.
+
+  - The algorithm we are using includes of 4 hidden layers and Artificial Neural Network method with back-propagation, where MSE losses (errors) are sent back to fine-tune the weights of the net based on loss from previous iteration to lower error rates and increase its generalization, activation functions used is Leaky ReLU.
+
+  - Three samples are randomly selected to show the real and their corresponding predictions.
 
 
 REFERENCES
+
   [1]  Aaron Parker. Demo analyzer. https://github.com/AronParker/DemoAnalyzer,2021.
+  
   [2]  162.254.193.0/24  as32590  valve  corporation  united  states  valve.net  reg-istry: Arin 256 ip addresses id: Valve-v4-6
