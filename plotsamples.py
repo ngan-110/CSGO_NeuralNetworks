@@ -18,8 +18,10 @@ def plotsamples(filereal, filepredict, Time):
     df = df.drop(['Time'],axis=1)
     dff = dff.drop(['Time'],axis=1)
     mpl.style.use('seaborn')
-    plt.xlim(-.4, .4)
-    plt.ylim(-.2, 0.5)
+
+    plt.xlim(-.6, .4)
+    plt.ylim(-.7, 0.3)
+
     time = Time.replace(":", "_")
     
     Title = "Real vs predicted positions:\n %s \n  Players 1-5" %Time
@@ -61,8 +63,10 @@ def plotsamples(filereal, filepredict, Time):
     df = df.drop(['Time'],axis=1)
     dff = dff.drop(['Time'],axis=1)
     mpl.style.use('seaborn')
-    plt.xlim(-.4, .4)
-    plt.ylim(-.2, 0.5)
+
+    plt.xlim(-.6, .4)
+    plt.ylim(-.7, 0.3)
+    
     Title = "Players 6-10"
     plt.title(Title, fontsize = 18) 
     plt.plot(df.Player6_x,df.Player6_y, '#DC143C', marker = '.', markersize = 10, label = "Player6")

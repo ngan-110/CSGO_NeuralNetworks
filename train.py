@@ -24,6 +24,6 @@ def train(m, x, y):
     plt.xlabel('Loss vs. epoches')
     plt.ylabel('Loss')
     
-    plt.savefig('py_accuracy_loss.jpg')  
+    plt.savefig('Accuracy_loss.jpg')  
 
     plt.show()

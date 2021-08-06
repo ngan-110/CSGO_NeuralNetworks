@@ -3,14 +3,18 @@ import matplotlib as mpl
 import pandas as pd
 
 def plotfiles(data_folder, file, type):
-    file = data_folder/file
-    df = pd.read_csv(file)
+    fullfile = data_folder/file
+    df = pd.read_csv(fullfile)
     plt.figure(figsize=(4,3))
     plt.tick_params(labelsize=14)
     mpl.style.use('seaborn')
-    plt.xlim(-.4, .4)
-    plt.ylim(-.2, 0.5)    
+    
+    plt.xlim(-.6, .4)
+    plt.ylim(-.7, 0.3)    
+
     Titlename = "%s positions" %type
+    Titlename = file + Titlename 
+    Titlename = Titlename.replace(".csv", "_")
     plt.title(Titlename, fontsize = 20)
     plt.plot(df.Player1_x,df.Player1_y, '.',  markersize = 10, label = "Player1" )
     plt.plot(df.Player2_x,df.Player2_y, '.', markersize = 10,label = "Player2")

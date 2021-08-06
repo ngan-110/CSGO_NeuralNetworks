@@ -14,8 +14,8 @@ import get_randomsamples
 
 def main():
     print("Program running...")
-    networkdatafile = "july16_networkdata_clean.csv"
-    replaydatafile = "july16.csv"
+    networkdatafile = "july15_networkdata_clean.csv"
+    replaydatafile = "july15.csv"
     x,y,time,max_value = get_tensors.get_tensors(replaydatafile, networkdatafile) 
     print("Total samples from data set from network file: ", x.size()[0])
     print("Number of feature from each sample: ", x.size()[1])
@@ -36,12 +36,20 @@ def main():
     train.train(model, trainx, trainy)
 
     mse = evaluation.evaluation(model, valx, valy)
-    print('MSE: %.3f, RMSE: %.3f' % (mse, sqrt(mse)))
+    print('Eval set MSE: %.3f, RMSE: %.3f' % (mse, sqrt(mse)))
+
+    replaydatafile_test = "july16_2.csv"
+    networkdatafile_test = "july16_2_networkdata_clean.csv"
+    x2,y2,time2,max_value2 = get_tensors.get_tensors(replaydatafile_test, networkdatafile_test) 
+    print("Total samples for testing: ", x2.size()[0])
+
+    mse = evaluation.evaluation(model, x2, y2)
+    print('Testing set MSE: %.3f, RMSE: %.3f' % (mse, sqrt(mse)))
 
     data_folder = Path("../CSGOreplaysfiles/")
-    realfile = "real_"+ replaydatafile
-    predictfile = "predict_"+ replaydatafile
-    results=predict.predict(x,y,time,model,realfile,predictfile,data_folder)
+    realfile = "real_"+ replaydatafile_test
+    predictfile = "predict_"+ replaydatafile_test
+    results=predict.predict(x2,y2,time2,model,realfile,predictfile,data_folder)
 
     plotfiles.plotfiles(data_folder,realfile, "Real")
     plotfiles.plotfiles(data_folder,predictfile, "Predicted")
